@@ -1,0 +1,19 @@
+name: Actions Workflow
+
+on: [push]
+
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Simple JS Action
+        #provide id for variale to use 
+        id: greet
+        uses: actions/hello-world-javascript-action@v1.1
+        #input
+        with:
+          who-to-greet: Kakgat
+        #output
+      - name: Log Greeting time
+        # "time" must be used as per action docmentation https://github.com/actions/hello-world-javascript-action
+        run: echo "${{ steps.greet.outputs.time }}"
