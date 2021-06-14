@@ -22,7 +22,7 @@ jobs:
         uses: actions/hello-world-javascript-action@v1
         #input
         with:
-          who-to-greet: Kakgat
+          who-to-greet: Kakgatz
         #output
       - name: Log Greeting time
         # "time" must be used as per action docmentation https://github.com/actions/hello-world-javascript-action
