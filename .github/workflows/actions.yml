@@ -9,7 +9,7 @@ jobs:
       - name: Simple JS Action
         #provide id for variale to use 
         id: greet
-        uses: actions/hello-world-javascript-action@v1.1
+        uses: actions/hello-world-javascript-action@v1
         #input
         with:
           who-to-greet: Kakgat
