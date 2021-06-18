@@ -1,7 +1,9 @@
 name: Actions Workflow
 
-on: [push, pull_request]
-
+on: 
+  push: 
+  pull_request:
+    types: [closed, assigned, opened, reopened]
 jobs:
   run-github-actions:
     runs-on: ubuntu-latest
@@ -22,7 +24,7 @@ jobs:
         uses: actions/hello-world-javascript-action@v1
         #input
         with:
-          who-to-greet: KakgatzDev
+          who-to-greet: KakgatzDevTest2
         #output
       - name: Log Greeting time
         # "time" must be used as per action docmentation https://github.com/actions/hello-world-javascript-action
