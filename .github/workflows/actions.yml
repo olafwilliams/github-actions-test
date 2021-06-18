@@ -1,0 +1,36 @@
+name: Actions Workflow
+
+on: 
+  repository_dispatch:
+     types: [test]
+  #schedule:
+    #- cron: "0/5 * * * *"
+    #- cron: "0/6 * * * *"
+  #push: 
+  pull_request:
+    types: [closed, assigned, opened, reopened]
+jobs:
+  run-github-actions:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: List Files
+        run: |
+          pwd
+          ls -a
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+      - name: List Files after Checkout Action
+        run: |
+          pwd
+          ls -a
+      - name: Simple JS Action
+        #provide id for variale to use 
+        id: greet
+        uses: actions/hello-world-javascript-action@v1
+        #input
+        with:
+          who-to-greet: KakgatzDevAPITesticle
+        #output
+      - name: Log Greeting time
+        # "time" must be used as per action docmentation https://github.com/actions/hello-world-javascript-action
+        run: echo "${{ steps.greet.outputs.time }}"
